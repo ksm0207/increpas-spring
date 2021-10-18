@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:context="http://www.springframework.org/schema/context" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd 
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!-- 
+	jdbc.properties 파일을 로드하기 위해(DB정보)
+	'context' 이라는 'namespace' + 'schema' 객체가 필요로한다.
+	여기서 schema는 beans를 의미한다.
+	
+	그래서 필요한 만큼 beans 요소의 속성을 수정해보도록 하자.
+	
+	[1] 수정
+	xmlns="http://www.springframework.org/schema/beans" 이 부분 밑에
+	xmlns:context="http://www.springframework.org/schema/context" 추가
+	
+	[2] 수정
+	http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd 추가
+    http://www.springframework.org/schema/context 추가
+    http://www.springframework.org/schema/context/spring-context.xsd" 추가
+    
+    [3] context로 명시된 부분이 있어야 jdbc.properties 파일을 로드할 수 있다.
+        context 라는 namespace를 추가해주었다.    
+-->
+
+	<context:property-placeholder location="classpath:jdbc.properties"/>
+	
+	<!-- Apache의 dbcp 라이브러리가 제공하는 BasicDataSource를 생성해야한다.
+	          그 작업을 아래 <bean> 에서 확인하자. -->
+	
+	<bean id="ds" class="org.apache.commons.dbcp.BasicDataSource"
+	destroy-method="close">
+	<property name="driverClassName" value="${jdbc.driver}"></property>
+	<property name="url" value="${jdbc.url}"></property>
+	<property name="username" value="${jdbc.user}"></property>
+	<property name="password" value="${jdbc.pwd}"></property>
+	<!-- maxActive : 동시에 사용할 수 있는 최대 커넥션 수 를 의미함
+		                          현재 값은 30개 이며 동시에 30개를 사용할 수 있다.
+	 -->
+	<property name="maxActive" value="${jdbc.maxActive}"></property>
+	<property name="maxIdle" value="${jdbc.maxIdle}"></property>
+          	
+	</bean>
+	
+</beans>

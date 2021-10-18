@@ -1,0 +1,10 @@
+package ex1.vo;
+
+public class Test3 {
+	
+	public Test3() {
+		
+	}
+	
+
+}

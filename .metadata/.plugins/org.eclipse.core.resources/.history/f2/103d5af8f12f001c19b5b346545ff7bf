@@ -1,0 +1,47 @@
+<%@page import="mybatis.vo.EmpVO"%>
+<%@page import="mybatis.dao.EmpDAO"%>
+<%@page import="org.springframework.context.support.ClassPathXmlApplicationContext"%>
+<%@page import="org.springframework.beans.factory.BeanFactory"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<%
+	BeanFactory bf = new ClassPathXmlApplicationContext("config.xml");
+	System.out.println("BF : "+ bf);
+	
+	// EmpVO[] vo = (EmpVO[])bf.getBean("total");
+	
+	EmpDAO dao = (EmpDAO)bf.getBean("total");
+	
+	// 전체 사원 가져오기
+	EmpVO[] vo = dao.getTotal();
+	request.setAttribute("vo", vo);
+%>
+
+<ul>	
+	<c:forEach var="evo" items="${vo}">
+		<li>
+			사번 : <span>${evo.employee_id}</span>
+			<span>${evo.first_name}</span>
+			<span>${evo.job_id}</span>
+			<c:if test="${evo.hire_date} != null">
+				${fn:substring(evo.hire_date,0,10)}
+			    <!-- substring(s1,0,3)} -->
+			</c:if>
+			<span>${evo.department_id}</span>
+		</li>
+	</c:forEach>
+</ul>
+
+</body>
+</html>

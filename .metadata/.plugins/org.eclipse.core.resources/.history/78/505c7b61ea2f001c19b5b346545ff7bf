@@ -1,0 +1,9 @@
+package mybatis.dao;
+
+import org.mybatis.spring.SqlSessionTemplate;
+
+public class EmpDAO {
+
+	private SqlSessionTemplate session;
+	
+}

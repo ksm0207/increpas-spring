@@ -1,0 +1,7 @@
+package ex1.vo;
+
+public class Test5 {
+	private Test3 t3;
+	
+	
+}

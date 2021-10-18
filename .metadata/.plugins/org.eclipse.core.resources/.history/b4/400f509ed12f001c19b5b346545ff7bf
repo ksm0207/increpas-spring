@@ -1,0 +1,14 @@
+package ex1.vo;
+
+public class Test3 {
+	
+	private String msg;
+	private int v1;
+	private boolean chk;
+	
+	public Test3() {
+		
+	}
+	
+
+}

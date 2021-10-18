@@ -1,0 +1,38 @@
+<%@page import="mybatis.vo.EmpVO"%>
+<%@page import="mybatis.dao.EmpDAO"%>
+<%@page import="org.springframework.context.support.ClassPathXmlApplicationContext"%>
+<%@page import="org.springframework.beans.factory.BeanFactory"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<%
+	BeanFactory bf = new ClassPathXmlApplicationContext("config.xml");
+
+	EmpDAO dvo = (EmpDAO)bf.getBean("total"); 
+//	EmpVO[] vo = (EmpVO[])bf.getBean("total");
+    EmpDAO total = new 
+%>
+
+<%
+	for(EmpVO evo : dvo){
+%>
+	
+	<span><%=evo.getEmployee_id() %></span>
+	<span><%=evo.getFirst_name() %></span>
+	<span><%=evo.getJob_id() %></span>
+	<span><%=evo.getHire_date() %></span>
+	<span><%=evo.getDepartment_id() %></span>
+<%
+	}
+%>
+
+
+</body>
+</html>

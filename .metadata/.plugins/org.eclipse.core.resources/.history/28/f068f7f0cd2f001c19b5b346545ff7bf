@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- id 는 t1 고유key 값-->
+	<!-- class : ex1.vo.Test1 객체를 의미한다 -->
+	<!-- 속성은 객체안에 속하는 멤버변수를 의미한다 -->
+	<!-- value 태그로 값을 할당해 주었다. -->
+    <bean id="t1" class="ex1.vo.Test1">
+        <property name="msg">
+        	<value>Hello Spring - DI 첫 연습입니다.</value>
+        </property>
+    </bean>
+
+</beans>

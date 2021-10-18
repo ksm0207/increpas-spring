@@ -1,0 +1,14 @@
+package ex1.vo;
+
+import jdk.nashorn.internal.objects.annotations.Getter;
+
+public class Test1 {
+	
+	private String msg;
+	
+	@Getter
+	public String getMsg() {
+		return msg;
+	}
+	
+}
