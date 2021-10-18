@@ -5,7 +5,7 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
- 	<!-- DI ( Dependence Injection ★★★★★  ) -->
+ 	<!-- DI ( Dependency Injection ★★★★★  ) -->
  	
 	<!-- bean : 자바 객체 , 객체를 생성하라는 뜻-->
 	<!-- id 는 t1 고유key 값-->
@@ -37,6 +37,7 @@
         <constructor-arg value="2021"></constructor-arg>
         <constructor-arg value="true"></constructor-arg>
     </bean>
+    
     
      <bean id="t4" class="ex1.vo.Test4">
         <property name="t2" ref="t2"></property>
