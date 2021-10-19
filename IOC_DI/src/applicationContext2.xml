@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+ 
+ 
+ <bean id="person" class="example2.Person">
+ 	<property name="name" value="Kimsungmin"></property>
+ 	<property name="age" value="27"></property>
+ 	<property name="gender" value="Men"></property>
+ 	<property name="addr" value="Seoul"></property>
+ 	<property name="phone" value="01012345678"></property>
+ </bean>
+ 
+ <bean id="dog" class="example2.Animal">
+ 	<property name="dog_name" value="사모예드"></property>
+ 	<property name="person" ref="person"></property>
+ </bean>
+
+
+</beans>
