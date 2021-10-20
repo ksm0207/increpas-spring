@@ -30,6 +30,7 @@
 
 	<!-- classpath : src -->
 	<context:property-placeholder location="classpath:jdbc.properties"/>
+	<context:annotation-config/> <!-- annotation 사용선언 -->
 	
 	<!-- Apache의 dbcp 라이브러리가 제공하는 BasicDataSource를 생성해야한다.
 	          그 작업을 아래 <bean> 에서 확인하자. -->
@@ -83,7 +84,7 @@
 	
 	<!-- TestVO -->
 	
-	<context:annotation-config/> <!-- annotation 사용선언 -->
+
 	<bean id="vo1" class="pm.vo.TestVO">
 		<property name="name" value="Kimsungmin"/>
 		<property name="email" value="ksm03071@naver.com"></property>

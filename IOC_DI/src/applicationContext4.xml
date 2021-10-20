@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+ 
+ 
+ 	<bean id="store" class="example4.Store">
+ 			<constructor-arg value="강남구"></constructor-arg>
+ 			<constructor-arg value="NamYeonseo"></constructor-arg>
+ 			<constructor-arg value="연필"></constructor-arg>
+ 			<constructor-arg value="1200"></constructor-arg>
+ 	</bean>
+ 
+ 	<bean id="person" class="example4.Person">
+ 			<constructor-arg ref="store"></constructor-arg>
+ 			<constructor-arg value="Kimsungmin"></constructor-arg>
+ 	</bean>
+ 
+ 	
+</beans>
