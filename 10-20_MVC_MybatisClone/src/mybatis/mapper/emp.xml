@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="emp">
+	
+	<select id="total" resultType="mybatis.vo.EmpVO">
+		
+		SELECT *
+		FROM employees
+	</select>
+	
+	<select id="search" resultType="mybatis.vo.EmpVO" parameterType="java.util.Map">
+	     
+	     SELECT *
+	     FROM employees
+	     
+	     <where>
+	     	<if test="type != null and value != null">
+				<choose>
+					<when test="type == 0">
+						employee_id = #{value}
+					</when>
+					
+					<when test="type == 1">
+						first_name = #{value}
+					</when>
+					
+					<when test="type == 3">
+						job_id = #{value}
+					</when>
+				</choose>	     	
+	     	</if>
+	     </where>
+	</select>
+	
+	<select id="view" parameterType="String" resultType="mybatis.vo.EmpVO">
+		SELECT *
+		FROM employees
+		WHERE employee_id = #{idx}
+	</select>
+	
+</mapper>
+
+
+
+
+
