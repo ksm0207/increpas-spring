@@ -9,15 +9,6 @@
 
 	<context:annotation-config/> <!-- annotation 사용선언 -->
 	
-	<!-- Controller-servlet.xml -->
-	<!-- 사용할 객체를 정의한다 -->
-	<!-- name : Controller 의해 호출될때 URL-Mapping 이름을 지어준다 -->
-	<!--        즉 브라우저에서 도메인뒤에 /t1.inc 라고 요청하면 Test1Action이 구동된다. -->
-	<bean class="emp.action.TotalAction" name="/total.inc"></bean>
-	<bean class="emp.action.SearchAction" name="/search.inc"></bean>
-	<bean class="emp.action.ViewAction" name="/view.inc"></bean>
-
-	
 	<!-- View Resolver -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/"></property><!-- 경로 -->
@@ -25,6 +16,17 @@
 		<!-- <property name="prefix" value="/WEB-INF/user/"></property> -->
 		<!--  Configuration problem: Multiple 'property' definitions for property 'prefix' -->
 	</bean>
+	
+	<!-- Controller-servlet.xml -->
+	<!-- 사용할 객체를 정의한다 -->
+	<!-- name : Controller 의해 호출될때 URL-Mapping 이름을 지어준다 -->
+	<!--        즉 브라우저에서 도메인뒤에 /t1.inc 라고 요청하면 Test1Action이 구동된다. -->
+	<bean class="emp.action.TotalAction" name="/total.inc"></bean>
+	<bean class="emp.action.SearchAction" name="/search.inc"></bean>
+	<bean class="emp.action.ViewAction" name="/view.inc"></bean>
+	<bean class="emp.action.Index" name="/*.inc"></bean>
+	
+	
 	
 	
 

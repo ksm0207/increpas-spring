@@ -17,6 +17,10 @@
 		<span>입사일 : ${emp_view.hire_date}</span><br>
 		<span>부서코드 : ${emp_view.department_id}</span><br>
 	</c:if>
+	
+	
+		${emp_view.hire_date}
+	
 
 
 </body>
