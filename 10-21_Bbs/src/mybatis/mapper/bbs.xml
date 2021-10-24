@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bbs">
+	
+	<select id="bbsTotal" resultType="int">
+		SELECT count(*)
+		FROM bbs_t
+		WHERE status = 0
+	</select>
+	
+	<select id="bbsGetList" resultType="mybatis.vo.BoardVO" parameterType="Map">
+		SELECT rownum, a.*
+			FROM(
+			  SELECT * FROM bbs_t
+			             WHERE status = 0
+				     ORDER BY b_idx DESC)a
+			WHERE rownum BETWEEN #{start} and #{end}
+	</select>
+
+	
+</mapper>

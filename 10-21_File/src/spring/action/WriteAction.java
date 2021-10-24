@@ -50,14 +50,13 @@ public class WriteAction {
 		
 		try {
 			mf.transferTo(new File(realPath,fname));
+			
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
 		
 		// DB에 저장할 파일명 지정
 		vo.setFile_name(fname);
-		
-		System.out.println(vo.getContent());
 		
 		int status = dao.writeImsi(vo);
 		

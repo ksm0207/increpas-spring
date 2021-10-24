@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd 
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:annotation-config/> <!-- annotation 사용선언 -->
+	
+	<!-- View Resolver -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/"></property><!-- 경로 -->
+		<property name="suffix" value=".jsp"></property> <!-- 확장자 -->
+		<!-- <property name="prefix" value="/WEB-INF/user/"></property> -->
+		<!--  Configuration problem: Multiple 'property' definitions for property 'prefix' -->
+	</bean>
+	
+	<!-- multipart Resolver -->
+	<bean id="multipartResolver" 
+ 	  class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+ 		<property name="defaultEncoding" value="utf-8"/>
+ 		<property name="maxUploadSize" value="-1"/> <!-- 파일 용량 제한을 주지않음 -->
+ 	</bean>
+	
+<!--  <bean class="spring.action.AjaxTestAction" name="/ex1.do"></bean> -->	
+		
+	
+		
+	<!-- Spring v4버전 -->
+	<!-- 비동기식통신을 하기 위한 bean객체를 만들어주었다. -->
+	<!-- MVNRepository.com에서 "com.fasterxml.jackson.core"검색하고 아래 라이브러리 다운로드 -->
+	<!-- 필요 라이브러리 : Jackson Databind, Jackson Core, Jackson Annotations -->
+	<!-- 버전은 2.9.8jar 다운로드함 -->
+	<!-- 파일은 maven등록하지만 지금은 환경이 다르므로 lib 폴더에 넣어준다 -->
+	
+	<bean id="jsonHttpMessageConverter"
+		class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" />
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+				<ref bean="jsonHttpMessageConverter" />
+			</list>
+		</property>
+	</bean>
+	
+	<!-- bean -->
+	<bean class="dept.action.TotalAction"></bean>
+	
+
+</beans>
