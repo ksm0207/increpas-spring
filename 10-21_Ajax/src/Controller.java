@@ -7,7 +7,7 @@ import org.springframework.web.servlet.DispatcherServlet;
 /**
  * Servlet implementation class Controller
  */
-@WebServlet("*.do")
+@WebServlet("*.inc")
 public class Controller extends DispatcherServlet {
-	private static final long serialVersionUID = 1L;
+	
 }

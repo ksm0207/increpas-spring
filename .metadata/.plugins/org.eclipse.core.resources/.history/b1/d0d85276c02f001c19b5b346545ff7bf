@@ -1,7 +1,0 @@
-package ex1.vo;
-
-public class Test1 {
-	
-	private String msg;
-	
-}

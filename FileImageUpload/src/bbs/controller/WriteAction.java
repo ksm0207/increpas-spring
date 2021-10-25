@@ -1,6 +1,7 @@
 package bbs.controller;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,9 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import editor.vo.ImgVO;
 import mybatis.dao.BbsDAO;
+import mybatis.vo.BbsVO;
 import spring.util.FileRenameUtil;
 
 @Controller
@@ -36,6 +39,31 @@ public class WriteAction {
 	public String write() {
 		return "write";
 	}
+	@RequestMapping(value="/write.inc", method = RequestMethod.POST)
+	public ModelAndView add(BbsVO vo) throws IllegalStateException, IOException{
+		
+		ModelAndView mv = new ModelAndView();
+		
+		MultipartFile mf = vo.getFile();
+		
+		String realPath = application.getRealPath(img_path);
+		String fname = mf.getOriginalFilename();
+		
+		mf.transferTo(new File(realPath,fname));
+		
+		vo.setFile_name(fname);
+		vo.setOri_name(fname);
+		vo.setIp(request.getRemoteAddr());
+		
+		/*
+		int status = b_dao.add(vo);
+		
+		mv.addObject("add",status);
+		mv.setViewName("write");
+		*/
+		
+		return mv;
+	}
 	
 	@RequestMapping(value="/saveImage.inc", method = RequestMethod.POST)
 	@ResponseBody
@@ -52,12 +80,14 @@ public class WriteAction {
 			String realPath = application.getRealPath(img_path);
 			
 			fname = f.getOriginalFilename();
+			System.out.println("getOriginalFilename: " + fname);
 			
 			// 첨부파일이 이미 저장된 파일 이름과 동일할 경우는 알아서
 			// 체크해야 한다. - FileRenameUtil
 			fname = FileRenameUtil.checkSameFileName(fname, realPath);
-			
+			System.out.println("FileRenameUtil : " + fname);
 			try {
+				// 업로드한 파일 데이터를 지정한 파일에 저장한다
 				f.transferTo(new File(realPath, fname));
 			} catch (Exception e) {
 				e.printStackTrace();

@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+.bv_container{
+	width:550px;
+	height:500px;
+	margin: auto;
+	margin-top:50px;
+	text-align: center;
+	font-size: 13px;
+	font-weight: bold;
+	color: #444;
+	position: relative;
+	border: 1px solid #444;
+}
+
+.top_container{
+	border: 1px solid #303030;
+	background:#303030;
+	color:white;
+	height:30px;
+	
+	line-height:-2px;
+}
+
+.bv_border_tLine{
+	border-bottom: 1px solid #444;
+	margin-bottom: 20px;
+}
+
+.fl_writer{
+	position: absolute;
+	left:5px;
+}
+.fr_write_date{
+	margin-left: 35px;
+}

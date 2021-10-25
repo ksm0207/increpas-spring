@@ -5,6 +5,7 @@ import java.io.File;
 public class FileRenameUtil {
 
 	public static String checkSameFileName(String fileName, String path) {
+		
 		//인자인 fileName에서 확장자를 뺀 파일명 가려내자!
 		//우선 "."의 위치를 알아내야 한다.
 		System.out.println("FileRenameUtil");
@@ -35,13 +36,13 @@ public class FileRenameUtil {
 			sb.append(suffix);
 			
 			fileName = sb.toString(); // test1231.txt
-			
+			System.out.println("FileName : " + fileName);
 			saveFileName = path + System.getProperty("file.separator") +fileName;
-			
+			System.out.println("saveFileName : " + saveFileName);
 			f = new File(saveFileName);
 			
 		}//while의 끝
-		
+		System.out.println("return : " + fileName);
 		return fileName;
 	}
 }

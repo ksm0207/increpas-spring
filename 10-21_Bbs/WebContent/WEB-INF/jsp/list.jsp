@@ -49,6 +49,13 @@
 			<a class="white_btn" href="#">목록</a>
 			<a class="black_btn" href="#">글쓰기</a>
 		</div>
+		<!--  
+		<div class="pageBlock">
+			<ul>
+				<li>1</li>
+			</ul>
+		</div>
+		-->
 	</div>
 	
 </body>

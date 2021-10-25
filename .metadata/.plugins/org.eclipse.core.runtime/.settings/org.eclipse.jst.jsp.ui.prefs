@@ -1,6 +1,12 @@
 SCRIPT_AREA_BORDER=\#ff8000 | null | false | false | false | false
+commentBorder=\#C7DD0C | null | null | false | null | null
+commentText=\#C7DD0C | null | null | false | null | null
 eclipse.preferences.version=1
+jsp_content=\#D8D8D8 | null | null | null | null | null
 newFileTemplateName=New JSP File (html 5)
+overriddenByCSS=,commentBorder,commentText,jsp_content,tagAttributeName,tagAttributeValue,
 tagAttributeEquals=\#ffffff | null | false | false | false | false
+tagAttributeName=\#8DCBE2 | null | null | null | null | null
+tagAttributeValue=\#FFC600 | null | null | null | null | null
 tagBorder=\#ff8000 | null | false | false | false | false
 tagName=\#ff8040 | null | true | false | false | false

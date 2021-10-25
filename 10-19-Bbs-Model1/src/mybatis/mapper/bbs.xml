@@ -5,7 +5,7 @@
 
 <mapper namespace="bbs">
 	<!-- 10-21 -->
-	<resultMap id="map" type="mybatis.vo.BbsVO">
+	<resultMap id="map" type="mybatis.vo.BoardVO">
 	
 		<id property="b_idx" column="b_idx"/>
 		

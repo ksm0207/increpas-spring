@@ -1,6 +1,0 @@
-package ex1.vo;
-
-public class Test4 {
-	private Test2 t2;
-	
-}

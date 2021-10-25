@@ -205,7 +205,7 @@
 <%
        			}else{  	
 %>	
-				<li><a href="list.jsp?cPage=<%=i%>"><%=i %></a></li>	
+				<li><a href="list.jsp?cPage=<%=i%>"><%=i%></a></li>	
 <%
        			}
          	}
