@@ -12,8 +12,9 @@
 <body>
 
 <div class="bv_container">
-
+   <form>
 	<div class="bv_border_tLine">
+	
 		<div class="top_container">
 		<span class="fl_writer">글쓴이 : ${bbs.writer}</span>
 		<c:if test="${bbs.write_date ne null }">
@@ -24,20 +25,72 @@
 	</div>
 	
 	<div class="bv_middle_line">
-		<span>[${bbs.bname}]</span>
-		<span>${bbs.subject}</span>
+		<div class="bv_bname_line">
+			<span class="bv_bname">게시판 유형 : [${bbs.bname}]</span>
+		</div>
+		
+		<div class="bv_middle_file_line">
+			<span>첨부파일 <a href="#">${bbs.file_name}</a></span>
+		</div>
+		
+		<div>
+			<span class="bv_subject">${bbs.subject}</span>		
+		</div>
+		
+		<div>
+			<span class="bv_content">${bbs.content}</span>
+		</div>
 	</div>
-	
-	<div class="bv_boder_bLine"></div>
-	
-	<div class="bv_bottom_line">
-		<span>첨부파일 :<a href="#">${bbs.file_name}</a></span>
-	</div>
+	</form>	
 </div>
+
+<div class="btn_container">
+	<a class="black_btn" href="#">수정</a>
+	<a class="black_btn" href="#">삭제</a>
+	<a class="white_btn" href="#">목록</a>
+</div>
+
 
 <div class="bv_commnet">
 
 </div>
+
+<!-- 원글을 의미하는 원글의 기본키 -->
+	<form method="post" action="ans_write.jsp">
+		이름:<input type="text" name="writer"/><br/>
+		내용:<textarea rows="4" cols="55" name="content"></textarea><br/>
+		비밀번호:<input type="password" name="pwd"/><br/>
+		<%-- <input type="hidden" name="b_idx" value="<%=bvo.getB_idx()%>">--%>
+		<%--<input type="hidden" name="cPage" value="<%=cPage%>">--%>
+		<input type="submit" value="저장하기"/> 
+	</form>
+	
+	댓글들<hr/>
+
+		<div>
+			이름: cvo.getWriter &nbsp;&nbsp;
+			날짜:cvo.getWrite_date() <br/>
+			내용:cvo.getContent() 
+		</div>
+		
+	<form name="frm" method="POST">
+		<%--<input type="hidden" name="cPage" value="<%=cPage%>">--%>
+		<%--<input type="hidden" name="b_idx" value="<%=bvo.getB_idx()%>">--%>
+		<input type="hidden" name="f_name">
+	</form>
+	
+	<script>
+		function goList(){
+			// location.href='list.jsp?=cPage';
+		}
+		
+		function download(file){
+			document.frm.f_name.value = file;
+			document.frm.action = 'download.jsp';
+			document.frm.submit();
+			
+		}
+	</script>
 
 </body>
 </html>

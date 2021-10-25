@@ -10,8 +10,11 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h2>게시판 연습</h2>
 	<div class="container">
+	
 		<table>
+			
 			<caption>게시판 Demo</caption>
 			<colgroup>
 				<col width="9%">
@@ -21,6 +24,7 @@
 				<col width="7%">
 			</colgroup>
 			<thead>
+				
 				<tr>
 					<td>번호</td>
 					<td>제목</td>
@@ -48,7 +52,7 @@
 		</table>
 		<div class="bottom_write">
 			<a class="white_btn" href="#">목록</a>
-			<a class="black_btn" href="#">글쓰기</a>
+			<a class="black_btn" href="write.do">글쓰기</a>
 		</div>
 		<div class="pageBlock">
 		

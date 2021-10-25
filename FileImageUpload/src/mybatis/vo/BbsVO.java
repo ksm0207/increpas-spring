@@ -16,6 +16,7 @@ public class BbsVO {
 				hit,
 				pwd,
 				status;
+	
 	private MultipartFile file; //이름을 file이라고 한 이유는 write.jsp에서
 				//전달되는 파라미터 이름이 file이기 때문이다.
 	

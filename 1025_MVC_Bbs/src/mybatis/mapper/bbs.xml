@@ -37,11 +37,11 @@
 	</select>
 	
 	<!-- 원글 저장 -->
-	<insert id="add" parameterType="java.util.Map">
+	<insert id="add" parameterType="mybatis.vo.BoardVO">
 		INSERT INTO bbs_t(b_idx, subject, writer, content,
-			file_name, ori_name, pwd, write_date, ip, hit, status)
+			file_name, ori_name, pwd, write_date, ip, hit, status,bname)
 		VALUES(bbs_t_seq.NEXTVAL, #{subject}, #{writer}, #{content},
-			#{file_name}, #{ori_name}, #{pwd}, sysdate, #{ip}, 0, 0)
+			#{file_name}, #{ori_name}, #{pwd}, sysdate, #{ip}, 0, 0,#{bname})
 	</insert>
 	
 	<!-- 기본키(b_idx_)를 인자로 받아 원글을 검색해 주는 기능 -->

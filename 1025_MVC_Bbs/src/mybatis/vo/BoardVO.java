@@ -2,6 +2,8 @@ package mybatis.vo;
 
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class BoardVO {
 	private String b_idx,
 				subject,
@@ -13,7 +15,18 @@ public class BoardVO {
 				ip,
 				hit,
 				status,
+				pwd,
 				bname;
+	
+	private MultipartFile file;
+	
+	public MultipartFile getFile() {
+		return file;
+	}
+	
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
 	
 	private List<CommentVO> c_list;//해당 글의 댓글들이 저장되는 곳!
 	public String getB_idx() {
@@ -89,5 +102,13 @@ public class BoardVO {
 	
 	public void setBname(String bname) {
 		this.bname = bname;
+	}
+	
+	public String getPwd() {
+		return pwd;
+	}
+	
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
 	}
 }
