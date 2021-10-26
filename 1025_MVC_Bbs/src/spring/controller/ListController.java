@@ -26,7 +26,7 @@ public class ListController implements Controller {
 	int nowPage; // 현재 페이지
 	int rowTotal; // 전체 게시물
 	
-	String pageCode; // 페이징 처리된 HTM코드가 저장되는 변수
+	String pageCode; // 페이징 처리된 HTML코드가 저장되는 변수
 	
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -36,6 +36,7 @@ public class ListController implements Controller {
 		// 현재 페이지 값 파라미터로 얻기
 		String c_page = request.getParameter("cPage");
 		System.out.println("현재페이지 :" + c_page);
+		
 		if(c_page == null) {
 			nowPage = 1;
 			System.out.println("c_page != null" + c_page != null);
@@ -43,6 +44,9 @@ public class ListController implements Controller {
 			nowPage = Integer.parseInt(c_page);
 			System.out.println("NowPage : " + nowPage);
 		}
+		
+		Paging page = new Paging(nowPage, rowTotal, BLOCK_LIST, BLOCK_PAGE);		
+		pageCode = page.getSb().toString(); // HTML 코드 저장
 		
 		//게시판 종류를 구별하기 위한 파라미터를 받는다.
 		String bname = request.getParameter("bname");
@@ -57,8 +61,7 @@ public class ListController implements Controller {
 		System.out.println("RowTotal :" + rowTotal);
 		// 페이징 처리를 하기 위한 객체 생성
 		
-		Paging page = new Paging(nowPage, rowTotal, BLOCK_LIST, BLOCK_PAGE);		
-		pageCode = page.getSb().toString(); // HTML 코드 저장
+		
 		
 		// JSP에서 표현할 게시물들의 목록을 받아내기 위해 begin / end 값을 구하자.
 		

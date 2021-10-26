@@ -16,9 +16,9 @@ import mybatis.vo.BoardVO;
 public class ViewController {
 	
 	@Autowired
-	HttpServletRequest request;
+	private HttpServletRequest request;
 	@Autowired
-	BoardDAO b_dao;
+	private BoardDAO b_dao;
 	
 	
 	@RequestMapping("/board_view.do")

@@ -19,9 +19,13 @@ public class Paging {
 	public Paging(int nowPage, int rowTotal, int blockList, int blockPage) {
 		
 		this.nowPage=nowPage;
+		System.out.println("this.nowPage :" + nowPage);
 		this.rowTotal=rowTotal;
+		System.out.println("this.rowTotal :" + rowTotal);
 		this.blockList=blockList;
+		System.out.println("this.blockList :" + blockList);
 		this.blockPage=blockPage;
+		System.out.println("this.blockPage :" + blockPage);
 		
 		
 		// 이전기능 , 다음기능 초기화
@@ -30,7 +34,7 @@ public class Paging {
 		
 		// 입력된 전체게시물의 수를 통해 전체 페이지 값을 구한다.
 		totalPage = (int)(Math.ceil((double)rowTotal / blockList)); // 32 / 10
-		
+		System.out.println("TotalPage : " + totalPage);
 		// 현재 페이지의 값이 전체페이지의 값보다 크다면 전체페이지 값을
 		// 현재 페이지 값으로 지정한다.
 		
@@ -40,7 +44,9 @@ public class Paging {
 		
 		// 현재 블럭의 시작페이지 값과 마지막 페이지 값을 구하기.
 		startPage = (int)((nowPage - 1) / blockPage) * blockPage +1;
-		endPage = startPage * blockPage -1;
+		System.out.println("StartPage : " + startPage);
+		endPage = startPage + (blockPage -1);
+		System.out.println("EndPage : " + endPage);
 		
 		// 마지막 페이지의 값이 전체 페이지의 값이 클 경우.
 		// 총 페이지 4 end 가 5일경우 막아준다. 5는 없는 페이지임
@@ -77,7 +83,7 @@ public class Paging {
 		
 			
 		}else {
-			sb.append("<li></li>");
+			sb.append("<li> &lt; </li>");
 		}
 		// 페이지 번호를 출력하는 반복문
 		for(int i= startPage; i<=endPage; i++) {

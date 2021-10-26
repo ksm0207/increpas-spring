@@ -20,7 +20,7 @@
 		<c:if test="${bbs.write_date ne null }">
 			<span class="fr_write_date">${fn:substring(bbs.write_date,0,10)}</span>		
 		</c:if>
-		<span style="float: right">조회수 : ${bbs.hit}</span>
+		<span style="float: right; padding: 5px;">조회수 : ${bbs.hit}</span>
 		</div>
 	</div>
 	
@@ -30,15 +30,17 @@
 		</div>
 		
 		<div class="bv_middle_file_line">
-			<span>첨부파일 <a href="#">${bbs.file_name}</a></span>
+			<c:if test="${bbs.file_name ne null}">
+				<span>첨부파일 <a href="#">${bbs.file_name}</a></span>			
+			</c:if>
 		</div>
 		
-		<div>
-			<span class="bv_subject">${bbs.subject}</span>		
+		<div class="bv_middle_subject_line">
+			<span class="bv_subject">제목:${bbs.subject}</span>		
 		</div>
 		
-		<div>
-			<span class="bv_content">${bbs.content}</span>
+		<div class="bv_c_container">
+			<span class="bv_content">내용:${bbs.content}</span>
 		</div>
 	</div>
 	</form>	
