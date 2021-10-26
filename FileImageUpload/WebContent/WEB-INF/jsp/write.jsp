@@ -98,6 +98,7 @@
 	<script src="asset/js/summernote-lite.js"></script>
 	<script src="asset/js/lang/summernote-ko-KR.js"></script>
 	<script>
+	
 		$(function(){
 			$("#content").summernote({
 				height: 200,

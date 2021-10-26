@@ -10,13 +10,17 @@
 			집합구조를 일대 다관계에 맞는 collection을 선언한다. -->
 		<collection property="c_list" ofType="mybatis.vo.CommentVO" 
 			select="commList" column="b_idx"/>
+			             <!-- column을 2개이상 보낼때 : {idx=b_idx, b_name=bname} 요 방식으로 한다 -->
 	</resultMap>
 	
 	<!-- 해당 원글(b_idx)에 맞는 댓글들을 가져오는 기능 -->
-	<select id="commList" parameterType="String" 
+	                                 <!-- Map -->
+                            <!--          b_idx = #{idx} AND bname = #{b_name} -->
+	<select id="commList" parameterType="String"
 	resultType="mybatis.vo.CommentVO">
 		SELECT * FROM comment_t
-		WHERE b_idx = #{b_idx}
+		WHERE b_idx = #{b_idx} 
+		
 	</select>
 
 	<!-- 원글들을 가져오는 기능 (status가 1이면 삭제된 글, 
@@ -37,11 +41,14 @@
 	</select>
 	
 	<!-- 원글 저장 -->
+	<!--INSERT, UPDATE 문을 작성할 때 NULL 값을 입력하거나 수정해야 할 때가 있을 때
+	        마이바티스에서는 NULL 값을 입력하려고 할 때 JDBCType 을 명시해줘야한다
+                타입을 명시하지 않으면 “부적합한 열 유형 : 1111” 같은 에러메시지가 발생한다 -->
 	<insert id="add" parameterType="mybatis.vo.BoardVO">
 		INSERT INTO bbs_t(b_idx, subject, writer, content,
 			file_name, ori_name, pwd, write_date, ip, hit, status,bname)
 		VALUES(bbs_t_seq.NEXTVAL, #{subject}, #{writer}, #{content},
-			#{file_name}, #{ori_name}, #{pwd}, sysdate, #{ip}, 0, 0,#{bname})
+			#{file_name, jdbcType=VARCHAR}, #{ori_name, jdbcType=VARCHAR}, #{pwd}, sysdate, #{ip}, 0, 0,#{bname})
 	</insert>
 	
 	<!-- 기본키(b_idx_)를 인자로 받아 원글을 검색해 주는 기능 -->
@@ -55,14 +62,14 @@
 		INSERT INTO comment_t(c_idx, writer, content, write_date,
 			ip, pwd, b_idx)
 		VALUES(comment_t_seq.NEXTVAL, #{writer}, #{content}, sysdate,
-			#{ip}, #{pwd}, #{b_idx})
+			#{ip, jdbcType=VARCHAR}, #{pwd}, #{b_idx})
 	</insert>
 	
 	<!-- 원글 삭제 update -->
-	<update id="delBbs" parameterType="Map">
+	<update id="delBbs" parameterType="String">
 		UPDATE bbs_t
 		SET status = 1
-		WHERE b_idx = #{b_idx} AND pwd = #{pwd}
+		WHERE b_idx = #{b_idx}
 	</update>
 	
 	<!-- 조회수 증가 -->
@@ -73,17 +80,19 @@
 	</update>
 	
 	<!-- 원글 수정 -->
-	<update id="edit" parameterType="java.util.Map">
+	<update id="edit" parameterType="mybatis.vo.BoardVO">
 		UPDATE bbs_t
 		SET
 			subject = #{subject},
 			content = #{content}
-			<if test="fname != null">
-				,file_name = #{fname}
-				,ori_name = #{oname}
+			<if test="file_name != null">
+				,file_name = #{file_name}
+				,ori_name = #{ori_name}
 			</if>
 		WHERE b_idx = #{b_idx} AND pwd = #{pwd}
 	</update>
+	
+	
 </mapper>
 
 

@@ -9,6 +9,7 @@
    
 	<context:annotation-config/>
 	
+	<!-- Ajax -->
 	<bean id="jsonHttpMessageConverter"
 		class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" />
 	<bean
@@ -33,6 +34,7 @@
     	<property name="prefix" value="/WEB-INF/jsp/"/><!-- 위치 지정 -->
     </bean>
     
+    <!-- bean -->
     <bean class="spring.controller.ListController" name="/list.do"></bean>
     <context:component-scan base-package="spring.controller"/>
     

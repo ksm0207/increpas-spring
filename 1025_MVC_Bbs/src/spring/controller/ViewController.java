@@ -32,13 +32,14 @@ public class ViewController {
 		
 		ModelAndView mv = new ModelAndView();
 
-	//	String cPage = request.getParameter("cPage"); 값 받기 확인 : [O]
+		String cPage = request.getParameter("cPage");
 		String b_idx = request.getParameter("b_idx"); 
 		
 		
 		System.out.println(b_idx);
 		BoardVO bbs = b_dao.getBbs(b_idx);
 		
+		mv.addObject("cPage",cPage);
 		mv.addObject("bbs",bbs);
 		mv.setViewName("board_view");
 		

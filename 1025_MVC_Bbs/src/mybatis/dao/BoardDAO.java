@@ -76,24 +76,10 @@ public class BoardDAO {
 		return cnt;
 	}
 	
-	public int editBbs(String b_idx, String subject, String content,
-			String fname, String oname, String pwd, String ip) {
-		Map<String, String> map = new HashMap<String, String>();
-		map.put("b_idx", b_idx);
-		map.put("subject", subject);
-		map.put("content", content);
-		map.put("pwd", pwd);
-		map.put("ip", ip);
+	public int editBbs(BoardVO vo) {
 		
-		//파일첨부가 되었을 때만 파일명들을 DB에 저장한다. 만약!
-		//파일첨부가 안되었다면 기존 파일이 유지되어야 하기 때문이다.
-		if(fname != null) {
-			map.put("fname", fname);
-			map.put("oname", oname);
-		}
 		
-		int cnt = ss.update("bbs.edit", map);
-		return cnt;
+		return ss.update("bbs.edit", vo);
 	}
 }
 

@@ -47,38 +47,43 @@
 </div>
 
 <div class="btn_container">
-	<a class="black_btn" href="#">수정</a>
-	<a class="black_btn" href="#">삭제</a>
-	<a class="white_btn" href="#">목록</a>
+	<a class="black_btn" href="javascript:location.href='edit.do?b_idx=${bbs.b_idx}&cPage=${cPage}'">수정</a>
+	<a class="black_btn" href="javascript:location.href='delete.do?b_idx=${bbs.b_idx}&cPage=${cPage}'">삭제</a>
+	<a class="white_btn" href="javascript:location.href='list.do?cPage=${cPage}'">목록</a>
 </div>
 
 
 <div class="bv_commnet">
 
+	<div>
+		<form method="post" action="ans_write.do">
+				이름:<input type="text" name="writer"/><br/>
+				내용:<textarea rows="4" cols="55" name="content"></textarea><br/>
+				비밀번호:<input type="password" name="pwd"/><br/>
+				<input type="hidden" name="b_idx" value="${bbs.b_idx}">
+				<input type="hidden" name="cPage" value="${cPage}">
+				<input type="submit" value="저장하기"/> 
+		</form>
+	</div>
+		<div>
+			<h3>댓글</h3>
+			
+			<c:forEach var="cvo" items="${bbs.c_list}">
+				<span>이름:${cvo.writer}</span>
+			    <span>내용:${cvo.content}</span>
+			    <span>작성일:${cvo.write_date}</span>
+			</c:forEach>
+		</div>
 </div>
 
 <!-- 원글을 의미하는 원글의 기본키 -->
-	<form method="post" action="ans_write.jsp">
-		이름:<input type="text" name="writer"/><br/>
-		내용:<textarea rows="4" cols="55" name="content"></textarea><br/>
-		비밀번호:<input type="password" name="pwd"/><br/>
-		<%-- <input type="hidden" name="b_idx" value="<%=bvo.getB_idx()%>">--%>
-		<%--<input type="hidden" name="cPage" value="<%=cPage%>">--%>
-		<input type="submit" value="저장하기"/> 
-	</form>
 	
-	댓글들<hr/>
-
-		<div>
-			이름: cvo.getWriter &nbsp;&nbsp;
-			날짜:cvo.getWrite_date() <br/>
-			내용:cvo.getContent() 
-		</div>
+	
 		
 	<form name="frm" method="POST">
-		<%--<input type="hidden" name="cPage" value="<%=cPage%>">--%>
-		<%--<input type="hidden" name="b_idx" value="<%=bvo.getB_idx()%>">--%>
-		<input type="hidden" name="f_name">
+		<input type="hidden" name="cPage" value="${cPage}">
+		<input type="hidden" name="b_idx" value="${bbs.b_idx}">
+		<input type="hidden" name="bname" value="${bbs.bname}">
 	</form>
 	
 	<script>
@@ -92,6 +97,12 @@
 			document.frm.submit();
 			
 		}
+		/*
+		function edit(){
+			document.frm.action = 'edit.do';
+			
+		}
+		*/
 	</script>
 
 </body>

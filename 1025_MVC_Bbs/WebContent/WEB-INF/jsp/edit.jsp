@@ -15,27 +15,29 @@
 <body>
 
 <div>
-	<form action="write.do" method="POST" enctype="multipart/form-data">
+	<form action="edit.do" method="POST" enctype="multipart/form-data">
 		
 		<div>
 			<span>제목:</span>
-			<input type="text" name="subject" size="45">
+			<input type="text" name="subject" value="${bbs.subject}" size="45">
 			
 			<span>이름:</span>
-			<input type="text" name="writer" size="12">
+			<input type="text" name="writer" value="${bbs.writer}" size="12" readonly="readonly">
 		
-			<textarea rows="8" cols="50" name="content" id="content" placeholder="내용을 입력하세요.">
-			
+			<textarea rows="8" cols="50" name="content" id="content" >
+				${bbs.content}
 			</textarea>
 			<span>첨부파일:</span>
-			<input type="file" name="file" size="45">
+			<input type="file" name="file" size="45" >
 			
 			<span>비밀번호:</span>
-			<input type="text" name="pwd" size="12">
+			<input type="text" name="pwd" size="12" value="${bbs.pwd}">
+			<input type="hidden" name="cPage" value="${param.cPage}">
+			<input type="hidden" name="b_idx" value="${bbs.b_idx}">
 		</div>
 		
 		<div>
-			<button type="button" onclick="sendData()">작성하기</button>
+			<button type="button" onclick="sendData()">수정</button>
 		</div>	
 	
 	</form>

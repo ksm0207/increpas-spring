@@ -8,6 +8,7 @@ public class CommentVO {
 	private String write_date;
 	private String ip;
 	private String b_idx;
+	private String pwd;
 	
 	
 	public String getC_idx() {
@@ -45,5 +46,13 @@ public class CommentVO {
 	}
 	public void setB_idx(String b_idx) {
 		this.b_idx = b_idx;
+	}
+	
+	public String getPwd() {
+		return pwd;
+	}
+	
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
 	}
 }

@@ -18,6 +18,8 @@ public class BoardVO {
 				pwd,
 				bname;
 	
+	private List<CommentVO> c_list;//해당 글의 댓글들이 저장되는 곳!
+	
 	private MultipartFile file;
 	
 	public MultipartFile getFile() {
@@ -28,7 +30,7 @@ public class BoardVO {
 		this.file = file;
 	}
 	
-	private List<CommentVO> c_list;//해당 글의 댓글들이 저장되는 곳!
+	
 	public String getB_idx() {
 		return b_idx;
 	}
