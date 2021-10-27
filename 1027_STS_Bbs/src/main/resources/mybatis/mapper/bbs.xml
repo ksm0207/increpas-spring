@@ -33,6 +33,14 @@
 	)WHERE r_idx BETWEEN #{begin} AND #{end}
 		
 	</select>
+	
+	<!-- 게시물 총합  -->
+	<select id="getBoardTotalCount" parameterType="String" resultType="int">
+		SELECT count(*)
+		FROM bbs_t
+		WHERE status = 0 AND bname = #{bname}
+	</select>
+	
 
 </mapper>
 

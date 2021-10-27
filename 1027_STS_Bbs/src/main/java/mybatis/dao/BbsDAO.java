@@ -16,6 +16,7 @@ public class BbsDAO {
 	@Autowired
 	private SqlSessionTemplate sst;
 
+	// 게시물 가져오기
 	public BbsVO[] list(String begin, String end, String bname) {
 		
 		BbsVO[] ar = null;
@@ -32,6 +33,15 @@ public class BbsDAO {
 			list.toArray(ar);
 		}
 		return ar;
+	}
+	
+	// 게시물 총합구하기
+	public int getBoardTotalCount(String bname) {
+		
+		int status = sst.selectOne("bbs.getBoardTotalCount",bname);
+		
+		return status;
+		
 	}
 	
 }

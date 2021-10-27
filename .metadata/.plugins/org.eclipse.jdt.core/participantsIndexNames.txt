@@ -51,6 +51,8 @@ C:\Users\user\Documents\GitHub\increpas-spring\.metadata\.plugins\org.eclipse.js
 \10-18-DB\src
 C:\Users\user\Documents\GitHub\increpas-spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3459878122.index
 \10-22_MVC_Editor\src
+C:\Users\user\Documents\GitHub\increpas-spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2931687156.index
+\1027_STS_Bbs\src\main\java
 C:\Users\user\Documents\GitHub\increpas-spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\999472445.index
 \10-20_MVC_MybatisClone\src
 C:\Users\user\Documents\GitHub\increpas-spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3854596212.index
