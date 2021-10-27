@@ -1,10 +1,12 @@
 applyBackground=false
 approved.defs.file.last.changed.time=1624986146000
-configurationInstallLocation=/C\:/Users/user/eclipse/jee-2019-09/eclipse/
+configurationInstallLocation=/C\:/Users/user/Desktop/sts-4.12.0.RELEASE/
+ct.upsell.display.after=1635748593263
 eclipse.preferences.version=1
 iconcolormode=primary
 includeThemingInOomph=false
-last.download.attempt.time=1635239277982
-lastConfiguration=1635278678537
-newinstall=true
+last.download.attempt.time=1635316773990
+lastConfiguration=1635331730126
+newinstall=false
+showWelcomeDialog=false
 workbench.theme=Dark Gray

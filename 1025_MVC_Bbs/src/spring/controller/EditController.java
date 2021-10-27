@@ -32,8 +32,8 @@ public class EditController {
 	private String ePath = "/editor_img";
 	
 	@RequestMapping("/edit.do")
-	public ModelAndView showView(){
-		String b_idx = request.getParameter("b_idx");
+	public ModelAndView showView(String b_idx){
+		
 		
 		ModelAndView mv = new ModelAndView();
 		
