@@ -44,4 +44,15 @@ public class BbsDAO {
 		
 	}
 	
+	// Idx값 받고 게시판 가져오기
+	public BbsVO getBbs(String b_idx) {
+
+		BbsVO vo = sst.selectOne("getBbs",b_idx);
+		return vo;
+	}
+	
+	public int add(BbsVO vo) {
+		
+		return sst.insert("add",vo);
+	}
 }

@@ -14,11 +14,8 @@
 <body>
 <h2>게시판 연습</h2>
 	<div class="container">
-	
 		<table>
-			
 			<caption>게시판 Demo</caption>
-			
 			<colgroup>
 				<col width="9%">
 				<col width="65%">
@@ -27,7 +24,6 @@
 				<col width="7%">
 			</colgroup>
 			<thead>
-				
 				<tr>
 					<td>번호</td>
 					<td>제목</td>
@@ -36,14 +32,13 @@
 					<td>조회수</td>
 				</tr>
 			</thead>
-			
 			<tbody>
 			<c:forEach var="bbs" items="${bbs_list}" varStatus="i">
 				<tr>
 					
 					<td>${rowTotal-((nowPage-1)*blockList+i.index)}</td>
 					
-					<td><a style="text-decoration: none"href="board_view.do?b_idx=${bbs.b_idx}&cPage=${nowPage}">${bbs.subject}</a></td>
+					<td><a style="text-decoration: none"href="bbs_view.do?b_idx=${bbs.b_idx}&cPage=${nowPage}">${bbs.subject}</a></td>
 					<td>${bbs.writer}</td>
 					<c:if test="${bbs.write_date ne null}">
 						<td>${fn:substring(bbs.write_date,5,10)}</td>
@@ -62,10 +57,10 @@
 				<li>
 					<c:choose>
 						<c:when test="${page.isPrePage()}">
-							<li><a href="list.do?cPage=${page.nowPage - page.blockPage}">이전</a>	</li>
+							<li><a href="list.do?cPage=${page.nowPage - 1}">이전</a></li>
 						</c:when>
 						<c:when test="${!page.isPrePage()}">
-								&lt;
+								<li><a href="list.do?cPage=${page.nowPage - 1}">이전</a></li>
 						</c:when>
 					</c:choose>
 						<c:forEach var="i" varStatus="status" begin="${page.startPage}" end="${page.endPage}">
@@ -80,7 +75,7 @@
 						</c:forEach>
 					<c:choose>
 						<c:when test="${page.isNextPage()}">
-							<li> <a href="list.do?cPage=${page.nowPage + page.blockPage}">다음</a></li>
+							<li> <a href="list.do?cPage=${page.nowPage + 5}">다음</a></li>
 						</c:when>
 						
 						<c:when test="${!page.isNextPage()}">
@@ -89,6 +84,10 @@
 					</c:choose>
 				</li>
 			</ul>
+		</div>
+		<div>
+			 <input type="text" placeholder="검색기능 구현해볼것.">
+			<button type="button">검색</button>
 		</div>
 		
 	</div>

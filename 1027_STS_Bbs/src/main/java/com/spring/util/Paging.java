@@ -35,7 +35,7 @@ public class Paging {
 		
 		// 현재 페이지 값이 전체 페이지 값 보다 크다면
 		// 현재 페이지 값으로 지정해줘서 막아주기
-		if(nowPage > totalPage) {
+		if(nowPage >= totalPage) {
 			nowPage = totalPage;
 		}
 		

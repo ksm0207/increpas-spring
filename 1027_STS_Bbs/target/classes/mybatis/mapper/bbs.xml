@@ -41,6 +41,21 @@
 		WHERE status = 0 AND bname = #{bname}
 	</select>
 	
+	<select id="getBbs" parameterType="String" resultMap="map1">
+	
+		SELECT *
+		FROM bbs_t
+		WHERE b_idx = #{b_idx}
+	</select>
+	
+	<!-- 게시물 저장 -->
+	<insert id="add" parameterType="mybatis.vo.BbsVO">
+		INSERT INTO bbs_t(b_idx, subject, writer, content,
+			file_name, ori_name, pwd, write_date, ip, hit, status,bname)
+		VALUES(bbs_t_seq.NEXTVAL, #{subject}, #{writer}, #{content},
+			#{file_name, jdbcType=VARCHAR}, #{ori_name, jdbcType=VARCHAR}, #{pwd}, sysdate, #{ip}, 0, 0,#{bname})
+	</insert>
+	
 
 </mapper>
 

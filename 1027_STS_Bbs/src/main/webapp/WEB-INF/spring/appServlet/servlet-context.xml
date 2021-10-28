@@ -24,9 +24,29 @@
 	</beans:bean> 
 	
 	
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	    <beans:property name="maxUploadSize" value="200000000" />
+	    <beans:property name="maxInMemorySize" value="200000000" />
+	</beans:bean>
+	
+	<!-- json view -->
+<beans:bean id="jsonHttpMessageConverter"
+		class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" />
+	<beans:bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<beans:property name="messageConverters">
+			<beans:list>
+				<beans:ref bean="jsonHttpMessageConverter" />
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+	
+	
+	
 	<context:component-scan base-package="com.increpas.bbs" />
 	
 	<beans:bean class="com.bbs.controller.BbsListController" name="/list.do"/>
-	
+	<beans:bean class="com.bbs.controller.BbsViewController" name="/view.do"/>
+	<beans:bean class="com.bbs.controller.BbsWriteController" name="/write.do"/>
 	
 </beans:beans>
