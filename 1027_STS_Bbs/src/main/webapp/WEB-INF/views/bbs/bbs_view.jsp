@@ -47,9 +47,13 @@
 </div>
 
 <div class="btn_container">
-	<a class="black_btn" href="javascript:location.href='edit.do?b_idx=${bbs.b_idx}&cPage=${cPage}'">수정</a>
-	<a class="black_btn" href="javascript:location.href='delete.do?b_idx=${bbs.b_idx}&cPage=${cPage}'">삭제</a>
-	<a class="white_btn" href="javascript:location.href='list.do?cPage=${cPage}'">목록</a>
+	
+	<!--  <a class="black_btn" href="javascript:location.href='del.do?b_idx=${bbs.b_idx}&cPage=${param.cPage}'">삭제</a>-->	
+	
+	<a class="black_btn" href="javascript:location.href='edit.do?b_idx=${bbs.b_idx}&cPage=${param.cPage}'">수정</a> 
+	<a class="black_btn" href="javascript:del()">삭제</a>
+	<a class="white_btn" href="javascript:location.href='list.do?cPage=${param.cPage}'">목록</a>
+
 </div>
 
 
@@ -106,6 +110,15 @@
 			
 		}
 		*/
+		
+		function del(){
+			const cof = confirm("삭제를 계속 진행하시겠습니까?"); // type of : bool
+			if(cof){
+				location.href='del.do?b_idx='+${bbs.b_idx}+'&cPage='+${param.cPage}
+				alert('삭제하였습니다');
+			}
+		}
+		
 	</script>
 
 </body>

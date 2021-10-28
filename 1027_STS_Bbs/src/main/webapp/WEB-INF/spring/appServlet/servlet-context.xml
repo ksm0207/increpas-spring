@@ -48,5 +48,7 @@
 	<beans:bean class="com.bbs.controller.BbsListController" name="/list.do"/>
 	<beans:bean class="com.bbs.controller.BbsViewController" name="/view.do"/>
 	<beans:bean class="com.bbs.controller.BbsWriteController" name="/write.do"/>
+	<beans:bean class="com.bbs.controller.BbsDelController" name="/del.do"/>
+	<beans:bean class="com.bbs.controller.BbsEditController" name="/edit.do"/>
 	
 </beans:beans>

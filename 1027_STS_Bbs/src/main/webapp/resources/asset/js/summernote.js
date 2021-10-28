@@ -49,5 +49,17 @@ function sendImage(file,editor){
 function sendData(){
 	console.log("sendData");
 	
+	
+	const subject = document.getElementById('subject').value;
+	console.log(subject);
+	const pwd = document.getElementById('pwd');
+	console.log(pwd);
+	console.log(typeof pwd);
+	
+	if(subject.trim().length < 0){
+		alert('입력란에 비어있는 부분이 있습니다.');
+		return false;
+	}
+	
 	document.forms[0].submit();
 }

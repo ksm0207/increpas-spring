@@ -55,4 +55,14 @@ public class BbsDAO {
 		
 		return sst.insert("add",vo);
 	}
+	
+	public int delBbs(int b_idx) {
+		
+		return sst.update("bbs.bbsDel",b_idx);
+	}
+	
+	public int bbsUpdate(BbsVO vo) {
+		
+		return sst.update("bbs.bbsUpdate",vo);
+	}
 }
