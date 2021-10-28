@@ -36,7 +36,7 @@
 		</div>
 		
 		<div class="bv_middle_subject_line">
-			<span class="bv_subject">제목:${bbs.subject}</span>		
+			<span class="bv_subject">제목:<c:out value="${bbs.subject}"/></span>		
 		</div>
 		
 		<div class="bv_c_container">

@@ -38,7 +38,11 @@
 					
 					<td>${rowTotal-((nowPage-1)*blockList+i.index)}</td>
 					
-					<td><a style="text-decoration: none"href="bbs_view.do?b_idx=${bbs.b_idx}&cPage=${nowPage}">${bbs.subject}</a></td>
+					<td>
+						<a style="text-decoration: none"href="bbs_view.do?b_idx=${bbs.b_idx}&cPage=${nowPage}">
+						<c:out value="${bbs.subject}"/>
+						</a>
+					</td>
 					<td>${bbs.writer}</td>
 					<c:if test="${bbs.write_date ne null}">
 						<td>${fn:substring(bbs.write_date,5,10)}</td>
