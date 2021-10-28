@@ -17,7 +17,7 @@
 
 </head>
 <body>
-<h2>게시판 수정</h2>
+<h2>게시판 수정입니다.</h2>
 <div>
 	<form action="edit.do" method="POST" enctype="multipart/form-data">
 		
