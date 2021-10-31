@@ -35,9 +35,7 @@
 			<tbody>
 			<c:forEach var="bbs" items="${bbs_list}" varStatus="i">
 				<tr>
-					
 					<td>${rowTotal-((nowPage-1)*blockList+i.index)}</td>
-					
 					<td>
 						<a style="text-decoration: none"href="bbs_view.do?b_idx=${bbs.b_idx}&cPage=${nowPage}">
 						<c:out value="${bbs.subject}"/>

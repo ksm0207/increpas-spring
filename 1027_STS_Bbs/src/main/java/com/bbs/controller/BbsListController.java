@@ -17,10 +17,11 @@ public class BbsListController {
 	private BbsDAO b_dao;
 	
 	
-	private int nowPage;
-	private int rowTotal;
 	private String begin;
 	private String end;
+	
+	private int nowPage;
+	private int rowTotal;
 	private final int BLOCKLIST = 5; // 한 페이지당 보여질 게시물 수
 	private final int BLOCKPAGE = 5; // 한 페이지에 보여지는 블럭 수
 	
