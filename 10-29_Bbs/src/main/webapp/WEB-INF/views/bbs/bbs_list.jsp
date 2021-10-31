@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <link rel="stylesheet" href="resources/css/list.css">
 </head>
 <body>
@@ -106,13 +107,32 @@
 					<option value="2">닉네임</option>
 				</select>
 				
-				 <input type="text" name="search" placeholder="검색">
-				<button type="submit">검색</button>
+				 <input type="text" id="search" name="search" placeholder="검색">
+				<button class="search_btn" type="button">검색</button>
 			</form>
-			
 		</div>
 		
 	</div>
+	<script type="text/javascript">
+		
+		$(function(){
+			
+			$(".search_btn").on("click",function(){
+				console.log("ready");
+				
+				const search = $("#search").val();
+				console.log(search);
+				if(!search){
+					alert("검색할 내용을 입력해주세요.");
+					return false;
+				}
+				
+				document.forms[0].submit();
+					
+			});
+		});
+		
+	</script>
 	
 </body>
 </html>
