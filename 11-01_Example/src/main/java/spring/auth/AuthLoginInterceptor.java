@@ -21,7 +21,7 @@ public class AuthLoginInterceptor extends HandlerInterceptorAdapter {
 			// 로그인을 안한 상태
 
 			System.out.println("Login X");
-			response.sendRedirect("/login");
+			response.sendRedirect("/login.do");
 			return false;
 		}
 		

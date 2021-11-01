@@ -27,6 +27,7 @@
 	<interceptors>
 		<interceptor>
 			<mapping path="/reservation/**"/>
+			<mapping path="/login/**"/>
 			<beans:ref bean="test"/>		
 		</interceptor>
 	</interceptors>
