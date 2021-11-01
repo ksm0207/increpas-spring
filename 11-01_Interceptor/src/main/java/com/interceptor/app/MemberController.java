@@ -23,7 +23,7 @@ public class MemberController {
 		return mv;
 	}
 	
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	@RequestMapping(value = "/login", method = RequestMethod.POST) 
 	public ModelAndView login(String id, String pw) {
 		
 		ModelAndView mv = new ModelAndView();

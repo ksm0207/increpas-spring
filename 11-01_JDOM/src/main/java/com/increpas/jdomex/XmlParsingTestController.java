@@ -39,6 +39,7 @@ public class XmlParsingTestController {
 		try {
 			
 			Document doc = builder.build(realPath); // xml
+			System.out.println(doc);
 			Element root = doc.getRootElement(); // <members> 부모
 			
 			List<TestVO> list = new ArrayList<TestVO>();

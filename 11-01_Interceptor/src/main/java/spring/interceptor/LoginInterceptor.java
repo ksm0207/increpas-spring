@@ -25,13 +25,14 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 		
 		// 로그인 시 저장했던 객체(mvo)를 얻어낸다.
 		Object obj = session.getAttribute("mvo");
-		
 		if(obj == null) {
 			// 로그인을 안한 상태
+
 			System.out.println("Login X");
 			response.sendRedirect("/login.do");
 			return false;
 		}
+		
 		return true;
 	}
 

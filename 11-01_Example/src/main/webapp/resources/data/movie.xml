@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<movies>
+
+	<movie>
+		<name>이터널스</name>
+		<releasdate>2021-11-05</releasdate>
+		<company>Marvel Studios</company>
+		<screeningtime>156분</screeningtime>
+	</movie>
+	
+	<movie>
+		<name>베놈2</name>
+		<releasdate>2021-10-13</releasdate>
+		<company>Marvel Studios</company>
+		<screeningtime>97분</screeningtime>
+	</movie>
+	
+	<movie>
+		<name>고장난 론</name>
+		<releasdate>2021-10-27</releasdate>
+		<company>LockSmith</company>
+		<screeningtime>106분</screeningtime>
+	</movie>
+	
+	
+</movies>
