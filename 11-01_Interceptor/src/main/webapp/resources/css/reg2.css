@@ -1,0 +1,80 @@
+@charset "UTF-8";
+
+#contents_sub{
+	width: 900px;
+	height: auto;
+	margin: auto;
+	padding-top: 30px;
+}
+.sub_title{
+	background: url(../img/sub_title.png) no-repeat;
+	text-indent: -9999px;
+}
+h1.title01{
+	height: 30px;
+	background-position: 0 0;
+}
+
+p.title_src{
+	font-size: 15px;
+	font-weight: bold;
+	color: #222;
+	padding: 10px 0 40px 5px;
+	width: 750px;
+}
+.guide_txt{
+	color: #999;
+	font-size: 11px;
+	padding-bottom: 7px;
+}
+.req{
+	display: inline-block;
+	width: 12px;
+	height: 8px;
+	background: url(../img/bult.png) no-repeat;
+	text-indent: -9999px;
+}
+
+/****** 테이블 작업 ******/
+table.table_type01{
+	border-collapse: collapse;
+	border: 1px solid #ddd;
+	border-left: none;
+	border-right: none;
+}
+table.table_type01 th{
+	border: 1px solid #ddd;
+	border-left: none;
+	font-weight: bold;
+	padding: 10px 0 10px 10px;
+	background-color: #efefef;
+	text-align: left;
+}
+table.table_type01 td{
+	border: 1px solid #ddd;
+	border-right: none;
+	padding: 10px;
+}
+
+#contents_sub div.btn_area{
+	width: 900px;
+	margin: auto;
+	text-align: center;
+}
+#contents_sub div.btn_area span{ 
+	margin-top: 30px;
+	padding: 3px 0;
+	width: 65px;  
+}
+#contents_sub div.btn_area span.b_ok{
+	height: 27px;
+	background-position: 0 -110px;
+}
+#contents_sub div.btn_area span.b_cancel{
+	height: 27px;
+	background-position: -100px -110px;
+}
+
+
+
+

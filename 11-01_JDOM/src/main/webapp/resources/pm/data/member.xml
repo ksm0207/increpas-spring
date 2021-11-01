@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Document -->
+<members> <!-- root element -->
+
+	<member>
+		<name>Kimsungmin</name>
+		<email>ksm03071@gmail.com</email>
+	</member>
+	
+	<member>
+		<name>Namyeonseo</name>
+		<email>cat@gmail.com</email>
+	</member>
+	
+</members>
+<!-- end -->

@@ -1,0 +1,182 @@
+@charset "UTF-8";
+@import "reset.css";
+/**********************************
+기본 레이아웃
+***********************************/
+#wrap{
+	width: 100%;
+	height: 100%;
+	margin: auto;
+}
+
+/****** 상단영역 *******/
+#header{
+	position: relative;
+	width: 970px;
+	height: 140px;
+	margin: auto;
+	/*border: 1px solid red;*/
+}
+#header h1{
+	width: 181px;
+	height: 59px;
+	background: url(../img/logo.png) no-repeat;
+	text-indent: -9999px;
+}
+/****** 메뉴작업 *******/
+#header .gnb{ /* ul을 header의 아래쪽에 붙여 놓는다. */
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 50px;
+	overflow: hidden;
+	font-size: 0px; /* 안쪽의 요소(li)가 inline-block으로 설정 시
+		글꼴의 크기와 연관되어 간격이 생기므로 글꼴크기를 없앤다. */
+}
+#header .gnb li{
+	display: inline-block;
+	width: 161.6px;
+	height: 100%; /* 50px */
+	background-color: #ff5001;
+}
+#header .gnb li a{
+	display: block;
+	height: 100%;
+	width: auto;
+	text-align: center;
+}
+#header .gnb li a>span.menu{
+	display: inline-block;
+	height: 20px;
+	margin-top: 14px;	
+	line-height: 20px;
+	color: #fff;
+	font-weight: bold;
+	font-size: 16px;
+	padding-left: 30px;
+	background: url(../img/gnb_bult.png) no-repeat;
+}
+#header .gnb li a>span.m01{ background-position: 0 0; }
+#header .gnb li a>span.m02{ background-position: 0 -22px; }
+#header .gnb li a>span.m03{ background-position: 0 -44px; }
+#header .gnb li a>span.m04{ background-position: 0 -66px; }
+#header .gnb li a>span.m05{ background-position: 0 -88px; }
+#header .gnb li:hover{
+	background-color: #e24c09;
+}
+/******* 푸터 영역 *********/
+#footer{
+	width: auto;
+	padding: 40px 0px 50px; /* 위   좌/우   아래 */
+	background: #eee;
+	margin-top: 80px;
+}
+#footer .footer_area{
+	width: 900px;
+	margin: auto;
+}
+#footer .foot_guide{
+	overflow: hidden;
+	padding-bottom: 20px;
+}
+#footer .foot_guide li{
+	float: left;
+	padding: 0 10px;
+	border-left: 1px solid #999;
+}
+/* li태그들 중 가장 첫번째 li요소 */
+#footer .foot_guide li:first-child{
+	border-left: none;
+	padding-left: 0;
+}
+#footer .foot_guide li a{
+	color: #777;
+	font-size: 12px;
+	font-weight: bold;
+}
+#footer .foot_guide li a:hover{
+	color: #ff4f00;
+}
+#footer address{
+	font-size: 12px;
+	color: #777;
+	padding-bottom: 6px;
+}
+#footer .copyright{ font-size: 11px; }
+
+/*****************************
+게시판 스타일
+******************************/
+.board_type01 .notice li a{ font-size: 12px; }
+
+
+
+/*****************************
+버튼 스타일
+******************************/
+.btnArea_right{
+	float: right;
+}
+.btn-center{
+	text-align: center;
+}
+.btn{
+	display: inline-block;
+	background: url(../img/btn.png) no-repeat;
+	text-indent: -9999px;
+}
+.btn a{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.b_login{ /* 로그인 버튼 */
+	width: 86px;
+	height: 56px;
+	background-position: 0 0;
+}
+
+.b_search{ /* 아이디비번찾기 버튼 */
+	width: 156px;
+	height: 27px;
+	background-position: -100px 0;
+	position: absolute;
+	right: 0;
+	top: 3px;
+}
+
+/*****************************
+폼 스타일
+******************************/
+input[type=checkbox]{
+	vertical-align: middle;
+}
+
+/*****************************
+기타 스타일
+******************************/
+.ellip{ /* 문자열을 공간에 맞도록 표현 및 줄임표 */
+	display: inline-block;
+	width: 97%;
+	white-space: nowrap; /* 스페이스바, 탭 줄바꿈 등을 공백 1칸으로 표시 */
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.fclear{
+	float: none;
+	clear: both;
+	content:'';
+	display: block;
+	height: 0 !important;/* !important는 CSS를 적용하다보면
+			다른 CSS파일에서 중복되는 부분이 간혹 생긴다. 이때
+			우선순위에서 밀려서 적용해제 되는 것을 막아준다. 
+			즉, 우선 처리된다. */
+}
+.fr{ float: right !important; }
+
+
+
+
+
+
+
