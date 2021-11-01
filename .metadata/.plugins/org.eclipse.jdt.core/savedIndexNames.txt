@@ -148,7 +148,6 @@ INDEX VERSION 1.131+C:\Users\user\Documents\GitHub\increpas-spring\.metadata\.pl
 791102247.index
 511290408.index
 471369175.index
-3880127554.index
 2501959175.index
 294292646.index
 2154115358.index
