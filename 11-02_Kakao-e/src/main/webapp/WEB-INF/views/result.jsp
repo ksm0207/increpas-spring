@@ -8,8 +8,8 @@
 </head>
 <body>
 
-${kakao.nickname}
-	<img src="${kakao.profile_image}" width="450px" height="550px">
+${mvo.name}
+<img src="${mvo.profile_image}" width="450px" height="550px">
 
 </body>
 </html>

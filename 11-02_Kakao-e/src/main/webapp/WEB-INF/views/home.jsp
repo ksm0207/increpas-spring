@@ -26,5 +26,10 @@
 		<a href="https://kauth.kakao.com/oauth/authorize?client_id=e9a4160ebafba2956d773a60fc5f7c59&redirect_uri=http://localhost:9090/kakao/login&response_type=code"><img src="resources/img/kakao_login_medium_wide.png"></a>
 	</c:if>
 	
+	<c:if test="${sessionScope.mvo ne null }">
+		<span>${mvo.name} 님 안녕하세요 ?</span>
+		<a href="https://kauth.kakao.com/oauth/logout?client_id=e9a4160ebafba2956d773a60fc5f7c59&logout_redirect_uri=http://localhost:9090/kakao/logout">로그아웃</a>
+	</c:if>
+	
 </body>
 </html>
