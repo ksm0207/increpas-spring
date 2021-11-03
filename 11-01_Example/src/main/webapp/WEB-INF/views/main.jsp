@@ -10,6 +10,7 @@
 
 	<div>
 		<span><a href="movie">영화</a></span>
+		<span><a href="data">공공데이터 테스트</a></span>
 	</div>
 
 </body>

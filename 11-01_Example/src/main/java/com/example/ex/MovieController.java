@@ -54,7 +54,6 @@ public class MovieController {
 			
 		
 			name = e.getChildText("name");
-			System.out.println(name);
 			releasdate = e.getChildText("releasdate");
 			company = e.getChildText("company");
 			screeningtime = e.getChildText("screeningtime");
