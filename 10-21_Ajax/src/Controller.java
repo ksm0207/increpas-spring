@@ -7,7 +7,7 @@ import org.springframework.web.servlet.DispatcherServlet;
 /**
  * Servlet implementation class Controller
  */
-@WebServlet("*.inc")
+@WebServlet("*.do")
 public class Controller extends DispatcherServlet {
 	
 }

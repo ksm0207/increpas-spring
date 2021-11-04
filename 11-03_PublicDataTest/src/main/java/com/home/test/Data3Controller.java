@@ -31,8 +31,9 @@ public class Data3Controller {
 	private String chgerType; // 충전기타입
 	private String chgerid; // 충전기
 	private String statid; // 충전소
-	private String statNm; // 충전소 이름
+	private String statNm; // 충전소 명
 	private String note; // 충전소 안내
+	private DataVO3 vo;
 	
 	@RequestMapping("/car")
 	public ModelAndView getXMLParsing() {
@@ -81,12 +82,15 @@ public class Data3Controller {
 				statNm = e.getChildText("statNm");
 				note = e.getChildText("note");
 				
-				DataVO3 vo = new DataVO3(limitYn, stat, busiCall, busiNm, useTime, lat, lng, addr, chgerType, chgerid, statid, statNm,note);
+				System.out.println("충전소  : " + statid);
+				System.out.println("충전기  : " + chgerid);
 				
+				vo = new DataVO3(limitYn, stat, busiCall, busiNm, useTime, lat, lng, addr, chgerType, chgerid, statid, statNm,note);
 				list.add(vo);
 			}
 			
 			mv.addObject("data",list);
+			mv.addObject("vo", vo);
 			mv.setViewName("car");
 			
 		} catch (Exception e) {
