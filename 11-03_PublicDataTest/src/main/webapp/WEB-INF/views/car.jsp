@@ -209,7 +209,7 @@ caption {
 				let lng = td.eq(11).text();
 				let busiNm = td.eq(12).text();
 			
-		
+				
 			str += "<span>충전소명 : "+statNm+"</span>" +"<br>" + "<span>주소 :" + addr +"</span>"+ "<br>"
 			       +"<span>운영기관연락처 : "+busiCall + "</span>" +"<br>"+ "<span>이용자 제한" + limitYn + "</span>" + "<br>"
 			       +"<span>이용가능시간 : " + useTime +  "</span>" +"<br>" + "<span>충전소 안내 : " + note + "</span>" + "<br>"
@@ -225,8 +225,7 @@ caption {
 			
 		  
 	  });
-	
-	
+	 
 	function getAddress (address){
 		
 		let myAddress = address;

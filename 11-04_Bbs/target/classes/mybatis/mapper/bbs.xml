@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bbs">
+
+
+	<resultMap type="com.Bbs.vo.BbsVO" id="res">
+		<id property="b_idx" column="b_idx"/>
+		<collection ofType="com.Bbs.vo.CommentVO" property="c_list"
+		 			select="comment_list" column="b_idx">
+		</collection>
+	</resultMap>
+	
+	<!-- 특정 게시물의 기본키를 받고 댓글을 가지고오는 쿼리문 -->
+	<select id="comment_list" resultType="com.Bbs.vo.CommentVO" parameterType="String">
+			SELECT *
+			FROM comment_t
+			WHERE b_idx = #{b_idx}
+	</select>
+
+	<select id="bbsTotal" resultType="int" parameterType="String">
+		SELECT COUNT(*)
+		FROM bbs_t
+		WHERE status = 0 AND bname = #{bname}
+	</select>
+	
+	<select id="bbsList" parameterType="Map" resultMap="res">
+		SELECT * FROM(			
+			SELECT rownum row_idx, a.*
+			FROM(	
+					SELECT *
+					FROM bbs_t
+					WHERE status = 0 AND bname = #{bname}
+					ORDER BY b_idx DESC)a)
+		WHERE row_idx BETWEEN #{begin} AND #{end}
+	</select>
+	
+
+	<!-- 검색 -->
+	<select id="bbsSearch" resultType="com.Bbs.vo.BbsVO" parameterType="Map">
+	
+		SELECT *
+		FROM bbs_t
+		
+		<where>
+			<if test="select != null and search != null">
+			
+				<choose>
+				
+					 <when test="select == 0">
+					 	subject LIKE '%' || #{search} || '%'
+					 	AND status = 0
+					 	ORDER BY b_idx DESC
+					 	
+					 </when>
+					 
+					  <when test="select == 1">
+					 	content LIKE '%' || #{search} || '%'
+					 	AND status = 0
+					 	ORDER BY b_idx DESC
+					 </when>
+					 
+					  <when test="select == 2">
+					 	writer  LIKE '%' ||#{search} || '%'
+					 	AND status = 0
+					 	ORDER BY b_idx DESC
+					 </when>
+					 
+				</choose>
+				
+			</if>
+		</where>
+		 
+	</select>
+
+	
+	
+	
+	
+	
+	
+	
+
+</mapper>
+
+
+
+
+
