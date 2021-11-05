@@ -10,7 +10,7 @@ import com.Bbs.service.BbsUsingService;
 import com.Bbs.vo.BbsVO;
 
 @Controller
-public class BbsListController {
+public class BbsListController  {
 	
 	@Autowired
 	private BbsUsingService bbs;
