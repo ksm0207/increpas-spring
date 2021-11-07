@@ -51,7 +51,7 @@
 
 /*현재 썸네일에 붙여줄 클래스*/
 .on_thumbnail { 
-  border: 1px dashed red;
+  border: 1px solid white;
 }
 /*썸네일 아이템을 감쌀 뼈대*/
 .thumbnail {

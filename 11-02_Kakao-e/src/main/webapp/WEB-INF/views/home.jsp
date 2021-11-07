@@ -24,6 +24,7 @@
 		<!-- 첫번째 호출 REST_API_KEY + http://localhost:9090/kakao/login -->
 		<!-- KEY : e9a4160ebafba2956d773a60fc5f7c59 REDIRECT URL : http://localhost:9090/kakao/login -->
 		<a href="https://kauth.kakao.com/oauth/authorize?client_id=e9a4160ebafba2956d773a60fc5f7c59&redirect_uri=http://localhost:9090/kakao/login&response_type=code"><img src="resources/img/kakao_login_medium_wide.png"></a>
+	
 	</c:if>
 	
 	<c:if test="${sessionScope.mvo ne null }">
