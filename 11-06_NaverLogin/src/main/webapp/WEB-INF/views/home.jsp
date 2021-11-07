@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +10,9 @@
 </head>
 <body>
 	<h2>네이버 로그인 페이지</h2>
-
+	${kakao_client}
+	${kakao_redirect }
+	
 <div>
 	<c:choose >
 		<c:when test="${sessionScope.mvo == null}">
@@ -23,7 +26,7 @@
 		<input type="submit" value="로그인">
 		</form>
 		<a href="https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=xMyF0KlYHyGgwDd2AA5B&redirect_uri=http%3a%2f%2flocalhost%3a9090%2fnaver_callback&state=0"><img width="200px" src="https://developers.naver.com/doc/review_201802/CK_bEFnWMeEBjXpQ5o8N_20180202_7aot50.png"></a>
-		<a href="https://kauth.kakao.com/oauth/authorize?client_id=e9a4160ebafba2956d773a60fc5f7c59&redirect_uri=http://localhost:9090/kakao/login&response_type=code"><img src="resources/img/kakao_login_medium_wide.png"></a>
+		<a href="https://kauth.kakao.com/oauth/authorize?client_id=${kakao_client}&redirect_uri=${kakao_redirect}&response_type=code"><img src="resources/img/kakao_login_medium_wide.png"></a>
 	
 		</c:when>	
 	</c:choose>
